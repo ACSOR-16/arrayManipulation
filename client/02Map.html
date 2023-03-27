@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span class="app"></span>
+  <script>
+    const tasks = [
+      { toDo: 'make dinner', status: false },
+      { toDo: 'sweep the floor', status: true },
+      { toDo: 'feed the kittens', status: true },
+      { toDo: 'buy groceries', status: false },
+      { toDo: 'take a bath', status: true },
+    ];
+    
+    const app = document.querySelector('.app');
+    
+    const tasksList = tasks.map(({ toDo, status }) => {
+      const element = `
+        <li>
+          <input 
+            type='checkbox' 
+            id='${toDo}' 
+            name='${toDo}' 
+            ${status && 'checked'} />
+          <label for='${toDo}' >${toDo} </label>   
+        </li>`;
+
+        return element;
+      });
+
+      app.innerHTML = tasksList.join("");
+    
+  </script>
+</body>
+</html>
